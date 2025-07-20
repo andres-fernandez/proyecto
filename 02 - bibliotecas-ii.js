@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Mask for voronid / delauny /////////////////////////////////////////////////////////
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   
-  d3.json('data/argentina_sanitized.json').then(function (mapa) {
+  d3.json('./data/argentina_sanitized.json').then(function (mapa) {
     defs.append('mask')
       .attr('id', 'mask-ar')
       .selectAll('path')
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Del archivo GeoJSON original de Argentina, se separó la parte continental de las Islas Malvinas, para poder estilizarlos por separado
   // El archivo con la parte continental tuvo que ser sanitizado para poder aplicarle un atributo de relleno. Eso se hizo en https://rewind.davidb.dev
   
-  d3.json('data/argentina_sanitized.json').then(function (mapa) {
+  d3.json('./data/argentina_sanitized.json').then(function (mapa) {
     argentina.selectAll('path')
       .data(mapa.features)
       .join('path')
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
   // Islas Malvinas /////////////////////////////////////////////////////////////////////
   
-   d3.json('data/islas_malvinas_sanitized.json').then(function (mapa) {
+   d3.json('./data/islas_malvinas_sanitized.json').then(function (mapa) {
      islas_malvinas.attr('fill', 'none')
        .selectAll('path')
        .data(mapa.features)
@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // Un dot para cada biblioteca popular en Argentina /////////////////////////////////////
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   
-  d3.csv('data/bibliotecas.csv').then(data => {
+  d3.csv('./data/bibliotecas.csv').then(data => {
     public_libraries.attr('stroke', '#222')
       .attr('stroke-width', 0)
       .attr('fill', '#fff')
@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // Crear una estructura de voronoid /////////////////////////////////////////////////////
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   
-  d3.csv('data/bibliotecas.csv').then(data => {
+  d3.csv('./data/bibliotecas.csv').then(data => {
   
     const scaleColor = d3.scaleSequential().domain([0, 74]).interpolator(d3.interpolateRainbow);
   

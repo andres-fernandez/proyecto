@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Del archivo GeoJSON original de Argentina, se separó la parte continental de las Islas Malvinas, para poder estilizarlos por separado
   // El archivo con la parte continental tuvo que ser sanitizado para poder aplicarle un atributo de relleno. Eso se hizo en https://rewind.davidb.dev
   
-  d3.json('data/argentina_sanitized.json').then(function (mapa) {
+  d3.json('./data/argentina_sanitized.json').then(function (mapa) {
     argentina.selectAll('path')
       .data(mapa.features)
       .join('path')
@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
   // Islas Malvinas ///////////////////////////////////////////////////////////////////
   
-   d3.json('data/islas_malvinas_sanitized.json').then(function (mapa) {
+   d3.json('./data/islas_malvinas_sanitized.json').then(function (mapa) {
      islas_malvinas.attr('fill', 'none')
        .selectAll('path')
        .data(mapa.features)
@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Un dot para cada usuario de las supercomputadoras de la UNC //////////////////
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   
-  d3.csv('data/establecimientos_educativos_en_argentina.csv').then(data => {
+  d3.csv('./data/establecimientos_educativos_en_argentina.csv').then(data => {
     schools.attr('stroke-width', 0)
       .attr('fill', '#fff')
       .selectAll('circle')

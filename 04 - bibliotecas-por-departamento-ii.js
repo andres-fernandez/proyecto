@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // const colorScale = d3.scaleLinear().domain([1,2,3,4,5,6,7,8,10,12,17,25,35,43]).range(['#ffd353', '#ffc349', '#ffb242', '#f89c3b', '#ef8737', '#e86c33', '#de4f33', '#cd3d30', '#bb292c', '#b02743', '#9f2d55', '#83235c', '#62205f', '#4a1b54', '#341648']);
   const colorScale = d3.scaleLinear().domain([1,2,3,4,5,6,7,8,10,12,17,25,35,43]).range(['#944946', '#ad534d', '#c35d53', '#d36758', '#df775f', '#e68e66', '#eca36e', '#f2b677', '#efc580', '#e3cd87', '#bfc188', '#9ab086', '#739a82', '#619080', '#568a7e']);
 
-  d3.json('data/bibliotecas_por_departamentos_sanitized.json').then(function (mapa) {
+  d3.json('./data/bibliotecas_por_departamentos_sanitized.json').then(function (mapa) {
 
     // Force simulation
     const simulation = d3.forceSimulation(mapa.features)
@@ -152,7 +152,7 @@ simulation
     // Del archivo GeoJSON original de Argentina, se separó la parte continental de las Islas Malvinas, para poder estilizarlos por separado
   // El archivo con la parte continental tuvo que ser sanitizado para poder aplicarle un atributo de relleno. Eso se hizo en https://rewind.davidb.dev
   
-  d3.json('data/argentina_sanitized.json').then(function (mapa) {
+  d3.json('./data/argentina_sanitized.json').then(function (mapa) {
     argentina.selectAll('path')
       .data(mapa.features)
       .join('path')
@@ -169,7 +169,7 @@ simulation
   
   // Islas Malvinas ///////////////////////////////////////////////////////////////////
   
-   d3.json('data/islas_malvinas_sanitized.json').then(function (mapa) {
+   d3.json('./data/islas_malvinas_sanitized.json').then(function (mapa) {
      islas_malvinas.attr('fill', 'none')
        .selectAll('path')
        .data(mapa.features)

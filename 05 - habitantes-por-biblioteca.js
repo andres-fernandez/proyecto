@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Del archivo GeoJSON original de Argentina, se separó la parte continental de las Islas Malvinas, para poder estilizarlos por separado
   // El archivo con la parte continental tuvo que ser sanitizado para poder aplicarle un atributo de relleno. Eso se hizo en https://rewind.davidb.dev
   
-  d3.json('data/argentina_sanitized.json').then(function (mapa) {
+  d3.json('./data/argentina_sanitized.json').then(function (mapa) {
     argentina.selectAll('path')
       .data(mapa.features)
       .join('path')
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
   // Islas Malvinas ///////////////////////////////////////////////////////////////////
   
-   d3.json('data/islas_malvinas_sanitized.json').then(function (mapa) {
+   d3.json('./data/islas_malvinas_sanitized.json').then(function (mapa) {
      islas_malvinas.attr('fill', 'none')
        .selectAll('path')
        .data(mapa.features)
@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function() {
   colorScale = d3.scaleLinear().domain([1000,8341,17386,28932,42340,57860,81553,102421,132087,171000]).range(['#40b8bf', '#c9e1d5', '#fef4ad', '#fcd382', '#fbb361', '#fc9551', '#f77a47', '#d06b50', '#aa6059', '#865f5e', '#626063']);
   // colorScale = d3.scaleLinear().domain([1000,8341,17386,28932,42340,57860,81553,102421,132087,171000]).range(['#568a7e', '#679381', '#9eb286', '#d7c987', '#efc27e', '#eea770', '#e48764', '#d56859', '#ba5851', '#944946']);
 
-  d3.json('data/habitantes_por_biblioteca_segun_departamento.json').then(function (mapa) {
+  d3.json('./data/habitantes_por_biblioteca_segun_departamento.json').then(function (mapa) {
     dptos.attr('fill', 'none')
       .selectAll('path')
       .data(mapa.features)
@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
   // Provincias ///////////////////////////////////////////////////////////////////
       
-  d3.json('data/limites-provinciales.json').then(function (mapa) {
+  d3.json('./data/limites-provinciales.json').then(function (mapa) {
     provincias.attr('fill', 'none')
       .selectAll('path')
       .data(mapa.features)
@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Un dot para cada biblioteca en Argentina /////////////////////////////////////
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   
-  d3.csv('data/bibliotecas.csv').then(data => {
+  d3.csv('./data/bibliotecas.csv').then(data => {
     libraries_as_dot.attr('stroke-width', 0)
       .attr('fill', '#222')
       .selectAll('circle')

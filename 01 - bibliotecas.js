@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Del archivo GeoJSON original de Argentina, se separó la parte continental de las Islas Malvinas, para poder estilizarlos por separado
   // El archivo con la parte continental tuvo que ser sanitizado para poder aplicarle un atributo de relleno. Eso se hizo en https://rewind.davidb.dev
   
-  d3.json('data/argentina_sanitized.json').then(function (mapa) {
+  d3.json('./data/argentina_sanitized.json').then(function (mapa) {
     argentina.selectAll('path')
       .data(mapa.features)
       .join('path')
@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
   // Islas Malvinas ///////////////////////////////////////////////////////////////////
   
-   d3.json('data/islas_malvinas_sanitized.json').then(function (mapa) {
+   d3.json('./data/islas_malvinas_sanitized.json').then(function (mapa) {
      islas_malvinas.attr('fill', 'none')
        .selectAll('path')
        .data(mapa.features)
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
   // Provincias ///////////////////////////////////////////////////////////////////
       
-  d3.json('data/limites-provinciales.json').then(function (mapa) {
+  d3.json('./data/limites-provinciales.json').then(function (mapa) {
     provincias.attr('fill', 'none')
       .selectAll('path')
       .data(mapa.features)
@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Un dot para cada biblioteca popular en Argentina /////////////////////////////
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   
-  d3.csv('data/bibliotecas.csv').then(data => {
+  d3.csv('./data/bibliotecas.csv').then(data => {
     public_libraries.attr('stroke', '#222')
       .attr('stroke-width', 0)
       .attr('fill', '#fff')
