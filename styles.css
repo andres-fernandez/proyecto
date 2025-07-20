@@ -1,0 +1,67 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&family=Fira+Code&display=swap');
+
+:root { --w: 450px; }
+
+html { background-color: #222; }
+
+body { font-family: 'Cascadia Mono', monospace, sans-serif; color: #e4e4e4; text-align: center; }
+
+.hidden { display: none; }
+
+.interactive { display: flex; gap: 10px; }
+
+button {
+  /*width: 100%;*/
+  flex: 1 1 100%;
+  max-width: var(--w);
+  padding: 5px 0;
+  font-family: 'Cascadia Mono', monospace, sans-serif;
+  font-size: 12px;
+  color: #f4f4f4;
+  cursor: pointer;
+  background: #353535;
+  border: none;
+  letter-spacing: 0.5px;
+  border-radius: 3px;
+}
+button.dimmed img { opacity: 0.2; }
+button img { pointer-events: none; }
+
+section { display: inline-block; max-width: var(--w); }
+
+section[data-render="Bibliotecas por provincia"] { display: block; max-width: 1820px; margin: 4rem auto 0; }
+
+h2 {
+  text-align: center;
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: #353535;
+  padding: 10px;
+  border-radius: 3px;
+  font-weight: normal;
+}
+
+#dataviz_bibliotecas, 
+#dataviz_escuelas,
+#dataviz_departamentos,
+#dataviz_habitantes { display: inline-grid; grid-template-columns: 1fr; grid-template-areas: 'main'; }
+
+svg, canvas { width: 100%; max-width: var(--w); display: block; grid-area: main; }
+
+#dataviz_bibliotecas svg, 
+#dataviz_escuelas svg,
+#dataviz_departamentos svg,
+#dataviz_habitantes svg { width: 450px; height: 750px; } 
+
+/* ///////////// Bibliotecas por provincia ///////////////////////////////// */
+
+#dataviz_provincias {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 320px);
+  justify-content: center;
+  grid-gap: 30px;
+}
+
+/*#bibliotecas-por-provincia div { border: 1px dotted #333; }*/
